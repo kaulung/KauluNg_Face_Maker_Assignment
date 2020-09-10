@@ -1,4 +1,10 @@
 package com.example.face_maker;
+/*
+
+Author: Kaulu Ng
+Date 9/10/20
+
+ */
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         String display_text = adapterView.getItemAtPosition(i).toString();
-        Toast.makeText(adapterView.getContext(), display_text, Toast.LENGTH_SHORT).show();
+        Toast.makeText(adapterView.getContext(), display_text, Toast.LENGTH_SHORT).show( );
     }
 
     @Override

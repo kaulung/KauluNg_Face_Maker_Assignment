@@ -1,5 +1,12 @@
 package com.example.face_maker;
 
+/*
+
+Author: Kaulu Ng
+Date 9/10/20
+
+ */
+
 public class Face  {
 
     int skinColor;
