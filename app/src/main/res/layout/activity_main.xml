@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Face Maker!:"
+            android:text="@string/main_title"
             android:textSize="40dp"/>
 
         <LinearLayout
@@ -43,7 +43,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Amount of Red:"
+                android:text="@string/red_title"
                 android:textSize="20dp"/>
 
             <SeekBar
@@ -81,7 +81,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Amount of Blue:"
+                android:text="@string/blue_title"
                 android:textSize="20dp"/>
 
             <SeekBar
@@ -100,11 +100,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hair Style"
+                android:text="@string/hair_style_title"
                 android:textSize="20dp"/>
 
             <Spinner
-                android:id="@+id/spinner"
+                android:id="@+id/spinner_hair"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -118,7 +118,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Select a part of the face:"
+                android:text="@string/spinner_title"
                 android:textSize="20dp"/>
 
             <RadioGroup
@@ -128,19 +128,19 @@
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Hair"
+                    android:text="@string/radio_hair"
                     android:textSize="10dp"/>
 
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Eyes"
+                    android:text="@string/radio_eyes"
                     android:textSize="10dp"/>
 
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Skin"
+                    android:text="@string/radio_skin"
                     android:textSize="10dp"/>
 
             </RadioGroup>
@@ -155,7 +155,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Random Face Option"
+                android:text="@string/random_face_title"
                 android:textSize="20dp"/>
 
             <Button

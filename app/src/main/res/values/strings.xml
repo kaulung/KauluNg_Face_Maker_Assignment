@@ -1,3 +1,20 @@
 <resources>
+    <string-array name="hair_styles">
+        <item>Normal</item>
+        <item>Bowl Cut</item>
+        <item>Mohawk</item>
+
+    </string-array>
+
     <string name="app_name">Face_Maker</string>
+    <string name="main_title">Welcome to the Face Maker:</string>
+    <string name="red_title">Amount of Red:</string>
+    <string name="green_title">Amount of Green:</string>
+    <string name="blue_title">Amount of Blue:</string>
+    <string name="hair_style_title">Select a Hair Style:</string>
+    <string name="spinner_title">Select a part of the face:</string>
+    <string name="radio_hair">Hair</string>
+    <string name="radio_eyes">Eyes</string>
+    <string name="radio_skin">Skin</string>
+    <string name="random_face_title">Generate a Random Face</string>
 </resources>
