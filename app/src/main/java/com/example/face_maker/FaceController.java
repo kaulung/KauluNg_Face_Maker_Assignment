@@ -43,6 +43,7 @@ public class FaceController implements Spinner.OnItemSelectedListener, View.OnCl
         buttonSelected = radioGroup.indexOfChild(radioGroup.findViewById(uniqueID));
         currFace.invalidate();
 
+        //Change the progress of each bar depending on which radio button is pushed
         if(uniqueID == R.id.hairButton_0){
             redBar.setProgress(Color.red(currFace.getHairColor()));
             greenBar.setProgress(Color.green(currFace.getHairColor()));
@@ -64,7 +65,7 @@ public class FaceController implements Spinner.OnItemSelectedListener, View.OnCl
     @Override
     public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
 
-        //Only change the values of the seek bar if the user changed it 
+        //Only change the values of the seek bar if the user changed it
         if(b) {
             //Checks to see which SeekBar is being changed and modify the Face accordingly
             int specificSeek = seekBar.getId();
