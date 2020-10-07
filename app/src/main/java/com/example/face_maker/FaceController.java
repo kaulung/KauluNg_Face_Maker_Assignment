@@ -1,5 +1,6 @@
 package com.example.face_maker;
 
+import android.graphics.Color;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CompoundButton;
@@ -16,9 +17,17 @@ public class FaceController implements Spinner.OnItemSelectedListener, View.OnCl
     private int greenAmount;
     private int blueAmount;
     private int buttonSelected;
+    private SeekBar redBar;
+    private SeekBar greenBar;
+    private SeekBar blueBar;
 
     //Constructor of a FaceController needs a face object to control
-    public FaceController(Face f){ this.currFace = f;}
+    public FaceController(Face f, SeekBar r, SeekBar g, SeekBar b){
+        this.redBar = r;
+        this.greenBar = g;
+        this.blueBar = b;
+        this.currFace = f;
+    }
 
     //Method to listen for a press of the random button
     @Override
@@ -33,37 +42,54 @@ public class FaceController implements Spinner.OnItemSelectedListener, View.OnCl
         //Use the uniqueID to find the radio button and set it to buttonSelected;
         buttonSelected = radioGroup.indexOfChild(radioGroup.findViewById(uniqueID));
         currFace.invalidate();
+
+        if(uniqueID == R.id.hairButton_0){
+            redBar.setProgress(Color.red(currFace.getHairColor()));
+            greenBar.setProgress(Color.green(currFace.getHairColor()));
+            blueBar.setProgress(Color.green(currFace.getHairColor()));
+        }
+        else if(uniqueID == R.id.eyeButton_1){
+            redBar.setProgress(Color.red(currFace.getEyeColor()));
+            greenBar.setProgress(Color.green(currFace.getEyeColor()));
+            blueBar.setProgress(Color.green(currFace.getEyeColor()));
+        }
+        else if(uniqueID == R.id.skinButton_2){
+            redBar.setProgress(Color.red(currFace.getSkinColor()));
+            greenBar.setProgress(Color.green(currFace.getSkinColor()));
+            blueBar.setProgress(Color.blue(currFace.getSkinColor()));
+        }
+
     }
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-        //Checks to see which SeekBar is being changed and modify the Face accordingly
-        int specificSeek = seekBar.getId();
 
-        if(specificSeek == R.id.seekRed){
-            redAmount = seekBar.getProgress();
-        }
-        else if(specificSeek == R.id.seekGreen){
-            greenAmount = seekBar.getProgress();
-        }
-        else if(specificSeek == R.id.seekBlue){
-            blueAmount = seekBar.getProgress();
-        }
+        //Only change the values of the seek bar if the user changed it 
+        if(b) {
+            //Checks to see which SeekBar is being changed and modify the Face accordingly
+            int specificSeek = seekBar.getId();
 
-        //Checking to see which radio button is selected if any is and
-        //Change the specific feature of the face accordingly
-        if(buttonSelected == 0){
-            currFace.setHairColor(redAmount,greenAmount,blueAmount);
-        }
-        else if(buttonSelected == 1){
-            currFace.setEyeColor(redAmount,greenAmount,blueAmount);
-        }
-        else if(buttonSelected == 2 ){
-            currFace.setSkinColor(redAmount,greenAmount,blueAmount);
-        }
+            if (specificSeek == R.id.seekRed) {
+                redAmount = redBar.getProgress();
+            } else if (specificSeek == R.id.seekGreen) {
+                greenAmount = greenBar.getProgress();
+            } else if (specificSeek == R.id.seekBlue) {
+                blueAmount = blueBar.getProgress();
+            }
 
-        //Redraw the face after things have been changed
-        currFace.invalidate();
+            //Checking to see which radio button is selected if any is and
+            //Change the specific feature of the face accordingly
+            if (buttonSelected == 0) {
+                currFace.setHairColor(redAmount, greenAmount, blueAmount);
+            } else if (buttonSelected == 1) {
+                currFace.setEyeColor(redAmount, greenAmount, blueAmount);
+            } else if (buttonSelected == 2) {
+                currFace.setSkinColor(redAmount, greenAmount, blueAmount);
+            }
+
+            //Redraw the face after things have been changed
+            currFace.invalidate();
+        }
     }
 
     //Sets the value for the hair style depending on the selection of the button

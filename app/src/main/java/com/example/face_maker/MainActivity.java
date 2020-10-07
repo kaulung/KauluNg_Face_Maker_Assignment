@@ -24,8 +24,13 @@ public class MainActivity extends AppCompatActivity {
         //Initialize a face to be controlled
         Face mainFace = findViewById(R.id.faceSurfaceView);
 
+        //initializing seekBars
+        SeekBar redSeek = findViewById(R.id.seekRed);
+        SeekBar greenSeek = findViewById(R.id.seekGreen);
+        SeekBar blueSeek = findViewById(R.id.seekBlue);
+
         //initialize controller for the face
-        FaceController mainController = new FaceController(mainFace);
+        FaceController mainController = new FaceController(mainFace, redSeek, greenSeek, blueSeek);
 
         //initializing random face button
         Button randButton = findViewById(R.id.random_button);
@@ -34,11 +39,6 @@ public class MainActivity extends AppCompatActivity {
         //Initializing RadioGroup
         RadioGroup buttonGroup = findViewById(R.id.radio_butts);
         buttonGroup.setOnCheckedChangeListener(mainController);
-
-        //initializing seekBars
-        SeekBar redSeek = findViewById(R.id.seekRed);
-        SeekBar greenSeek = findViewById(R.id.seekGreen);
-        SeekBar blueSeek = findViewById(R.id.seekBlue);
 
         //Setting the listener of the seekBars to mainController
         redSeek.setOnSeekBarChangeListener(mainController);

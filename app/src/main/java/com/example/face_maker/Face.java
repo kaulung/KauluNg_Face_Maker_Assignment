@@ -56,6 +56,20 @@ public class Face extends SurfaceView {
         this.mouthColor = Color.rgb(red,green,blue);
     }
 
+    public int getHairColor() {
+        return this.hairColor;
+    }
+
+    public int getEyeColor(){
+        return this.eyeColor;
+    }
+
+    public int getSkinColor(){
+        return this.skinColor;
+    }
+
+
+
     //Method to randomly set the colors of the skin, eyes, hair, and mouth using Math.random()
     public void randomize(){
 
