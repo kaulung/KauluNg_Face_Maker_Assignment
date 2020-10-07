@@ -44,6 +44,7 @@
                 android:textSize="20dp"/>
 
             <SeekBar
+                android:id="@+id/seekRed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:max="255"
@@ -63,6 +64,7 @@
                 android:textSize="20dp"/>
 
             <SeekBar
+                android:id="@+id/seekGreen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:max="255"
@@ -82,6 +84,7 @@
                 android:textSize="20dp"/>
 
             <SeekBar
+                android:id="@+id/seekBlue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:max="255"
@@ -119,22 +122,26 @@
                 android:textSize="20dp"/>
 
             <RadioGroup
+                android:id="@+id/radio_butts"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <RadioButton
+                    android:id="@+id/hairButton_0"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/radio_hair"
                     android:textSize="10dp"/>
 
                 <RadioButton
+                    android:id="@+id/eyeButton_1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/radio_eyes"
                     android:textSize="10dp"/>
 
                 <RadioButton
+                    android:id="@+id/skinButton_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/radio_skin"
@@ -156,6 +163,7 @@
                 android:textSize="20dp"/>
 
             <Button
+                android:id="@+id/random_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Random Face"/>

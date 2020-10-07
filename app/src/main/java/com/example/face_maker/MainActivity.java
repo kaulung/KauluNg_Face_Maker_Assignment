@@ -12,33 +12,46 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Face mainFace = findViewById(R.id.faceSurfaceView);
+
+        FaceController mainController = new FaceController(mainFace);
+
+        //initializing random face button
+        Button randButton = findViewById(R.id.random_button);
+        randButton.setOnClickListener(mainController);
+
+        //Initializing RadioGroup
+        RadioGroup buttonGroup = findViewById(R.id.radio_butts);
+        buttonGroup.setOnCheckedChangeListener(mainController);
+
+        //initializing seekBars
+        SeekBar redSeek = findViewById(R.id.seekRed);
+        SeekBar greenSeek = findViewById(R.id.seekGreen);
+        SeekBar blueSeek = findViewById(R.id.seekBlue);
+
+        //Setting the listener of the seekBars to mainController
+        redSeek.setOnSeekBarChangeListener(mainController);
+        greenSeek.setOnSeekBarChangeListener(mainController);
+        blueSeek.setOnSeekBarChangeListener(mainController);
+
+        //Initalizing the spinner and setting the controller
         Spinner hair_spinner = findViewById(R.id.spinner_hair);
-        ArrayAdapter<CharSequence> spinner_adapter = ArrayAdapter.createFromResource(this, R.array.hair_styles, android.R.layout.simple_spinner_item
-        );
-        spinner_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        hair_spinner.setAdapter(spinner_adapter);
-        hair_spinner.setOnItemSelectedListener(this);
+        hair_spinner.setOnItemSelectedListener(mainController);
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        String display_text = adapterView.getItemAtPosition(i).toString();
-        Toast.makeText(adapterView.getContext(), display_text, Toast.LENGTH_SHORT).show( );
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-
-    }
 
 }
