@@ -10,6 +10,7 @@ import android.widget.Spinner;
 
 public class FaceController implements Spinner.OnItemSelectedListener, View.OnClickListener,
         SeekBar.OnSeekBarChangeListener, RadioGroup.OnCheckedChangeListener, RadioButton.OnCheckedChangeListener {
+
     private Face currFace;
     private int redAmount;
     private int greenAmount;
@@ -19,17 +20,18 @@ public class FaceController implements Spinner.OnItemSelectedListener, View.OnCl
     //Constructor of a FaceController needs a face object to control
     public FaceController(Face f){ this.currFace = f;}
 
+    //Method to listen for a press of the random button
     @Override
     public void onClick(View view) {
         currFace.randomize();
         currFace.invalidate();
     }
 
+    //
     @Override
     public void onCheckedChanged(RadioGroup radioGroup, int uniqueID) {
         //Use the uniqueID to find the radio button and set it to buttonSelected;
         buttonSelected = radioGroup.indexOfChild(radioGroup.findViewById(uniqueID));
-
         currFace.invalidate();
     }
 

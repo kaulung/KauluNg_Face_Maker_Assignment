@@ -9,15 +9,10 @@ Date 9/10/20
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,8 +21,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Initialize a face to be controlled
         Face mainFace = findViewById(R.id.faceSurfaceView);
 
+        //initialize controller for the face
         FaceController mainController = new FaceController(mainFace);
 
         //initializing random face button
